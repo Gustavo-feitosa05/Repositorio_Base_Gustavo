@@ -1,14 +1,35 @@
+# import streamlit as st
+
+# st.title("Olá mundo, meu nome é gustavo")
+# # escreve um titulo
+
+# date = st.date_input("Selecione uma Data")
+# #Criando um calendário
+
+# file = st.file_uploader("Pick a file")
+# #Permitindo o upload
+
+
+#  python -m streamlit run app.py
+#  python -m streamlit run app.py
+
+#==============================================
+
 import streamlit as st
+import pandas as pd
 
-st.title("Olá mundo, meu nome é gustavo")
-# escreve um titulo
+cidades = ['Nagoya', 'Xinxi', 'Tokyo']
 
-date = st.date_input("Selecione uma Data")
-#Criando um calendário
+#Barra lateral
+opcao = st.sidebar.selectbox('Escolha uma cidade do Japão', cidades)
 
-file = st.file_uploader("Pick a file")
-#Permitindo o upload
+data = {'latitude': [35.6895, 34.6937, 39.701],
+        'longitude': [139.6917, 135.5023, 141.673]}
 
+df = pd.DataFrame(data)
 
+### TITULO SO SITE
+st.title("Mapa do Japão")
 
-#python -m streamlit rum app.py
+### CRIANDO UM MAPA/CRIA UM MAPA 
+st.map(df)
